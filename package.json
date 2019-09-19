@@ -1,0 +1,40 @@
+{
+  "name": "nounou",
+  "version": "1.0.0",
+  "description": "Appli mobile pour les nounous (enfants, horaires, factures, ...)",
+  "author": "Debaere Jonathan <jonathan.debaere@gmail.com>",
+  "license": "MIT",
+  "nativescript": {
+    "id": "com.laboweb.nounou",
+    "templateVersion": "v2",
+    "tns-android": {
+      "version": "6.0.0"
+    },
+    "tns-ios": {
+      "version": "6.0.1"
+    }
+  },
+  "dependencies": {
+    "@vue/devtools": "^5.0.6",
+    "nativescript-fonticon": "^2.0.0",
+    "nativescript-socketio": "^3.2.1",
+    "nativescript-sqlite": "^2.3.3",
+    "nativescript-theme-core": "^1.0.6",
+    "nativescript-toasty": "^1.3.0",
+    "nativescript-ui-sidedrawer": "^7.0.0",
+    "nativescript-vue": "^2.4.0",
+    "nativescript-vue-devtools": "^1.2.0",
+    "tns-core-modules": "^6.0.0",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "nativescript-dev-webpack": "^1.0.0",
+    "nativescript-vue-template-compiler": "^2.0.0",
+    "nativescript-worker-loader": "~0.9.0",
+    "node-sass": "^4.9.2",
+    "vue-loader": "^15.4.0"
+  }
+}
