@@ -8,13 +8,13 @@
     import LayoutDefault from '../layouts/LayoutDefault.vue';
 
     export default {
-        name: 'Home',
+        name: 'Invoices',
         components: {
             LayoutDefault
         },
         data() {
             return {
-                msg: 'Homepage'
+                msg: 'Factures'
             }
         }
     }

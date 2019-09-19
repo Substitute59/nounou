@@ -2,7 +2,7 @@
     <Page>
         <ActionBar>
             <GridLayout width="100%" columns="auto, *">
-                <Label text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
+                <Label class="fas" fontWeight="900" @tap="$refs.drawer.nativeView.showDrawer()" col="0">{{'fa-bars' | fonticon}}</Label>
                 <Label class="title" text="Nounou"  col="1"/>
             </GridLayout>
         </ActionBar>
@@ -12,6 +12,8 @@
                 <Label class="drawer-header" text="Accueil" @tap="goToHome"/>
 
                 <Label class="drawer-item" text="Enfants" @tap="goToChildren"/>
+                <Label class="drawer-item" text="Planning" @tap="goToPlanning"/>
+                <Label class="drawer-item" text="Factures" @tap="goToInvoices"/>
             </StackLayout>
 
             <GridLayout ~mainContent columns="*" rows="*">
@@ -24,6 +26,8 @@
 <script >
     import Home from '../components/App.vue';
     import Children from '../components/Children.vue';
+    import Planning from '../components/Planning.vue';
+    import Invoices from '../components/Invoices.vue';
 
     export default {
         methods: {
@@ -32,6 +36,12 @@
             },
             goToHome() {
                 this.$navigateTo(Home, { clearHistory: true })
+            },
+            goToPlanning() {
+                this.$navigateTo(Planning, { clearHistory: true })
+            },
+            goToInvoices() {
+                this.$navigateTo(Invoices, { clearHistory: true })
             }
         }
     }

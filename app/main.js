@@ -4,6 +4,19 @@ import App from './components/App'
 import VueDevtools from 'nativescript-vue-devtools'
 import store from './store/index'
 
+import {
+  TNSFontIcon,
+  fonticon
+} from 'nativescript-fonticon';
+
+TNSFontIcon.debug = true;
+TNSFontIcon.paths = {
+  'fa': './assets/css/fontawesome.css'
+};
+TNSFontIcon.loadCss();
+
+Vue.filter('fonticon', fonticon);
+
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }

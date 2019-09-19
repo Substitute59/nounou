@@ -39,7 +39,7 @@
   import { mapState } from 'vuex'
 
   export default {
-    name: `Enfants`,
+    name: 'Enfants',
     components: {
       LayoutDefault
     },
