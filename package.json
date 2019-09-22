@@ -7,15 +7,15 @@
   "nativescript": {
     "id": "com.laboweb.nounou",
     "templateVersion": "v2",
-    "tns-android": {
-      "version": "6.0.0"
-    },
     "tns-ios": {
       "version": "6.0.1"
+    },
+    "tns-android": {
+      "version": "6.1.1"
     }
   },
   "dependencies": {
-    "@vue/devtools": "^5.0.6",
+    "@vue/devtools": "^5.0.0-beta.3",
     "nativescript-fonticon": "^2.0.0",
     "nativescript-socketio": "^3.2.1",
     "nativescript-sqlite": "^2.3.3",

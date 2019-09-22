@@ -3,13 +3,13 @@ import App from './components/App'
 
 import VueDevtools from 'nativescript-vue-devtools'
 import store from './store/index'
+import LayoutDefault from './layouts/LayoutDefault.vue'
 
 import {
   TNSFontIcon,
   fonticon
 } from 'nativescript-fonticon';
 
-TNSFontIcon.debug = true;
 TNSFontIcon.paths = {
   'fa': './assets/css/fontawesome.css'
 };
@@ -28,6 +28,8 @@ Vue.registerElement(
   'RadSideDrawer',
   () => require('nativescript-ui-sidedrawer').RadSideDrawer
 )
+
+Vue.component('LayoutDefault', LayoutDefault)
 
 new Vue({
   store,

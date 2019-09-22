@@ -1,21 +1,21 @@
 <template>
-    <LayoutDefault>
-        <Label class="message" :text="msg"/>
+    <LayoutDefault page="NOUNOU">
+        <GridLayout ~mainContent columns="*" rows="*">
+            <Label class="message" :text="msg"/>
+        </GridLayout>
     </LayoutDefault>
 </template>
 
-<script >
-    import LayoutDefault from '../layouts/LayoutDefault.vue';
-
+<script>
     export default {
-        name: 'Home',
-        components: {
-            LayoutDefault
-        },
+        name: 'App',
         data() {
             return {
                 msg: 'Homepage'
             }
+        },
+        mounted() {
+            this.$store.dispatch('childrenStore/init');
         }
     }
 </script>

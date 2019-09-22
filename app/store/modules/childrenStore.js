@@ -22,7 +22,9 @@ const childrenStore = {
           id: data.data[i][0],
           firstname: data.data[i][1],
           lastname: data.data[i][2],
-          age: data.data[i][3]
+          age: data.data[i][3],
+          contact: data.data[i][4],
+          note: data.data[i][5]
         });
       }
     },
@@ -31,14 +33,20 @@ const childrenStore = {
         id: data.data.id,
         firstname: data.data.firstname,
         lastname: data.data.lastname,
-        age: data.data.age
+        age: data.data.age,
+        contact: data.data.contact,
+        note: data.data.note
       });
     },
+    remove(state, data) {
+      const newData = state.data.filter(item => item.id !== data.id);
+      state.data = newData;
+    }
   },
   actions: {
     init(context) {
-      (new Sqlite("my.db")).then(db => {
-        db.execSQL("CREATE TABLE IF NOT EXISTS children (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, age TEXT)").then(id => {
+      (new Sqlite("children.db")).then(db => {
+        db.execSQL("CREATE TABLE IF NOT EXISTS children (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, age TEXT, contact TEXT, note TEXT)").then(id => {
           context.commit("init", {
             database: db
           });
@@ -50,7 +58,7 @@ const childrenStore = {
       });
     },
     insert(context, data) {
-      context.state.database.execSQL("INSERT INTO children (firstname, lastname, age) VALUES (?, ?, ?)", [data.firstname, data.lastname, data.age]).then(id => {
+      context.state.database.execSQL("INSERT INTO children (firstname, lastname, age, contact, note) VALUES (?, ?, ?, ?, ?)", [data.firstname, data.lastname, data.age, data.contact, data.note]).then(id => {
         context.commit("save", {
           data: data
         });
@@ -59,12 +67,21 @@ const childrenStore = {
       });
     },
     query(context) {
-      context.state.database.all("SELECT id, firstname, lastname, age FROM children", []).then(result => {
+      context.state.database.all("SELECT * FROM children", []).then(result => {
         context.commit("load", {
           data: result
         });
       }, error => {
         console.log("SELECT ERROR", error);
+      });
+    },
+    delete(context, id) {
+      context.state.database.execSQL("DELETE FROM children WHERE id=?", id).then(() => {
+        context.commit("remove", {
+          id: id
+        });
+      }, error => {
+        console.log("INSERT ERROR", error);
       });
     }
   }

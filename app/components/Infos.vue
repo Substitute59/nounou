@@ -1,5 +1,5 @@
 <template>
-    <LayoutDefault page="Planning">
+    <LayoutDefault page="Informations">
         <GridLayout ~mainContent columns="*" rows="*">
             <Label class="message" :text="msg"/>
         </GridLayout>
@@ -8,10 +8,10 @@
 
 <script>
     export default {
-        name: 'Planning',
+        name: 'Infos',
         data() {
             return {
-                msg: 'Planning'
+                msg: 'Infos'
             }
         }
     }
